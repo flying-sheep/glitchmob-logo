@@ -1,0 +1,26 @@
+{
+  "name": "glitchmob-logo",
+  "version": "1.0.0",
+  "description": "The very geometric Glitch Mob logo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flying-sheep/glitchmob-logo"
+  },
+  "main": "script.jsx",
+  "scripts": {
+    "build": "babel script.jsx -o build/script.js"
+  },
+  "author": "Philipp A.",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1"
+  },
+  "babel": {
+    "plugins": [
+      "syntax-object-rest-spread",
+      "transform-react-jsx"
+    ]
+  }
+}
