@@ -8,6 +8,7 @@
   },
   "main": "script.jsx",
   "scripts": {
+    "watch": "babel -w script.jsx -o build/script.js",
     "build": "babel script.jsx -o build/script.js"
   },
   "author": "Philipp A.",
