@@ -146,23 +146,18 @@ class ReactiveLogo extends React.Component {
 	}
 	render() {
 		const { thickness, foreground, background } = this.state;
-		return React.createElement(
+		return [React.createElement(Logo, _extends({ key: 'logo', svgref: el => this.svg = el }, this.state)), React.createElement(
 			'div',
-			null,
-			React.createElement(Logo, _extends({ svgref: el => this.svg = el }, this.state)),
+			{ key: 'controls', id: 'controls' },
+			React.createElement('input', { ref: 'thickness', type: 'range', value: thickness, min: 1, max: 5, step: 0.05, onChange: () => this.set_css() }),
+			React.createElement('input', { ref: 'foreground', type: 'color', value: foreground, onChange: () => this.set_css() }),
+			React.createElement('input', { ref: 'background', type: 'color', value: background, onChange: () => this.set_css() }),
 			React.createElement(
-				'div',
-				{ id: 'controls' },
-				React.createElement('input', { ref: 'thickness', type: 'range', value: thickness, min: 1, max: 5, step: 0.05, onChange: () => this.set_css() }),
-				React.createElement('input', { ref: 'foreground', type: 'color', value: foreground, onChange: () => this.set_css() }),
-				React.createElement('input', { ref: 'background', type: 'color', value: background, onChange: () => this.set_css() }),
-				React.createElement(
-					'button',
-					{ onClick: () => this.download_svg() },
-					'Download'
-				)
+				'button',
+				{ onClick: () => this.download_svg() },
+				'Download'
 			)
-		);
+		)];
 	}
 }
 

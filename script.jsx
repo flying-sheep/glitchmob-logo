@@ -140,22 +140,22 @@ class ReactiveLogo extends React.Component {
 		const {width, height} = this.state
 		const styled = this.svg.cloneNode(true)
 		//TODO: add stylesheet
-		styled.setAttribute('width', width)
+		styled.setAttribute('width',  width)
 		styled.setAttribute('height', height)
 		styled.style = {...style_vars(defaults), ...styled.style}
 		download_svg_as_png(styled, width, height, 'glitchmob-logo.png')
 	}
 	render() {
 		const {thickness, foreground, background} = this.state
-		return <div>
-			<Logo svgref={el => this.svg = el} {...this.state}/>
-			<div id="controls">
+		return [
+			<Logo key="logo" svgref={el => this.svg = el} {...this.state}/>,
+			<div key="controls" id="controls">
 				<input ref="thickness" type="range" value={thickness} min={1} max={5} step={0.05} onChange={() => this.set_css()}/>
 				<input ref="foreground" type="color" value={foreground} onChange={() => this.set_css()}/>
 				<input ref="background" type="color" value={background} onChange={() => this.set_css()}/>
 				<button onClick={() => this.download_svg()}>Download</button>
-			</div>
-		</div>
+			</div>,
+		]
 	}
 }
 
